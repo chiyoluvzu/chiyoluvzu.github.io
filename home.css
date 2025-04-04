@@ -3,7 +3,7 @@
 @media screen and (min-width: 900px) {
   body {
     background-color: var(--background);
-    background-image: url("../images/sparkle.gif");
+    background-image: url("sparkle.gif");
     margin: 0px;
     color: var(--text);
     padding-top: 10%;
@@ -18,7 +18,7 @@
   }
 
   #main {
-    background-image: url("../images/paper.png");
+    background-image: url("paper.png");
     box-shadow: 10px 10px 10px var(--adjacent2);
     position: absolute;
     top: 50%;
@@ -108,7 +108,7 @@
 @media screen and (max-width: 899px) {
   body {
     background-color: var(--background);
-    background-image: url("../images/sparkle.gif");
+    background-image: url("sparkle.gif");
     margin: 0px;
     color: var(--text);
     padding-top: 50%;
@@ -124,7 +124,7 @@
   }
 
   #main {
-    background-image: url("../images/paper.png");
+    background-image: url("paper.png");
     box-shadow: 10px 10px 10px var(--adjacent2);
     position: absolute;
     top: 50%;
