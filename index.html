@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>•</title>
+  <style>
+    @font-face { font-family: 'N'; src: url('name.otf') format('opentype'); }
+    @font-face { font-family: 'B'; src: url('body.ttf') format('truetype'); }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      color: #fff;
+      font-family: 'B', sans-serif;
+      cursor: url('cursor.cur'), auto;
+    }
+    #bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: url('bg.png') center/cover;
+    }
+    #overlay {
+      position: fixed; inset: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    #enterBtn {
+      padding: 1rem 2rem;
+      background: transparent;
+      border: 2px solid #555;
+      color: #fff;
+      font-family: 'N', serif;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #enterBtn:hover { background: rgba(255,255,255,0.1); }
+    #card {
+      position: relative;
+      padding: 2rem;
+      max-width: 28rem;
+      margin: 2rem;
+      border: 2px solid #111;
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+      animation: fadeIn 1s ease;
+      text-align: center;
+      z-index: 1;
+    }
+    #avatar {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1rem;
+      border: 2px solid #333;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: tremble 0.5s infinite;
+    }
+    #avatar img { width: 100%; height: 100%; object-fit: cover; }
+    #name {
+      font-family: 'N', serif;
+      font-size: 2.2rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: glitch 2s infinite;
+    }
+    #desc {
+      margin-top: .7rem;
+      font-size: .95rem;
+      opacity: .85;
+      line-height: 1.5;
+      position: relative;
+    }
+    #desc::before, #desc::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      color: #444;
+      mix-blend-mode: overlay;
+      animation: shift 3s infinite;
+    }
+    #links {
+      display: flex;
+      justify-content: center;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+    }
+    .link {
+      width: 42px; height: 42px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #222;
+      border-radius: .5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s;
+    }
+    .link::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(45deg, #0000, #555);
+      opacity: 0;
+      transition: opacity .4s;
+    }
+    .link:hover { transform: scale(1.1); }
+    .link:hover::before { opacity: 1; }
+    .link img { width: 20px; height: 20px; filter: invert(0); z-index: 1; }
+    @keyframes tremble {
+      0%,100% { transform: translate(0,0); }
+      50%    { transform: translate(0.5px, -0.5px); }
+    }
+    @keyframes glitch {
+      0%,100% { text-shadow: 1px 1px #111, -1px -1px #111; }
+      50% { text-shadow: 2px 2px #333, -2px -2px #333; }
+    }
+    @keyframes shift {
+      0%,100% { transform: translate(0,0); }
+      50%   { transform: translate(2px,-2px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div id="bg"></div>
+  <div id="overlay">
+    <button id="enterBtn">Enter the Abyss</button>
+  </div>
+  <audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+
+  <div id="card">
+    <div id="avatar">
+      <img src="profile.jpg" alt="Profile">
+    </div>
+    <div id="name">Chiyo</div>
+    <div id="desc" data-text="I am me.">I am me.</div>
+    <div id="links">
+      <a class="link" href="https://discord.gg/compsci" target="_blank"><img src="icon1.png" alt></a>
+      <a class="link" href="https://github.com/chiyoluvzu" target="_blank"><img src="icon2.png" alt></a>
+      <a class="link" href="https://www.youtube.com/@Chiyoluvzu" target="_blank"><img src="icon3.png" alt></a>
+      <a class="link" href="www.tiktok.com/@chiyothefemboy" target="_blank"><img src="icon4.png" alt></a>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const bgm     = document.getElementById('bgm');
+    const enter   = document.getElementById('enterBtn');
+
+    enter.addEventListener('click', () => {
+      bgm.play().catch(() => {});
+      overlay.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
