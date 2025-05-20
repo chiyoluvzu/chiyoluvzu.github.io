@@ -2,173 +2,183 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>•</title>
-  <meta content="CHIYO" property="og:title" />
-  <meta content="What is it to live?" property="og:description" />
-  <meta content="https://chiyo.wtf" property="og:url" />
-  <meta content="https://chiyo.wtf/profile.jpg" property="og:image" />
-  <meta content="#000000" data-react-helmet="true" name="theme-color" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>~ chiyo ~</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    @font-face { font-family: 'N'; src: url('name.otf') format('opentype'); }
-    @font-face { font-family: 'B'; src: url('body.ttf') format('truetype'); }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      height: 100vh;
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Courier New', Courier, monospace;
+      background: url('bg.jpg') center;
+      color: #ffb6e9;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #000;
-      color: #fff;
-      font-family: 'B', sans-serif;
       cursor: url('cursor.cur'), auto;
     }
-    #bg {
-      position: absolute;
-      inset: 0;
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('overlay.gif') center/cover no-repeat;
+      opacity: 0.2;
       pointer-events: none;
-      background: url('bg.png') center/cover;
-    }
-    #overlay {
-      position: fixed; inset: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-    #enterBtn {
-      padding: 1rem 2rem;
-      background: transparent;
-      border: 2px solid #555;
-      color: #fff;
-      font-family: 'N', serif;
-      font-size: 1.2rem;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #enterBtn:hover { background: rgba(255,255,255,0.1); }
-    #card {
-      position: relative;
-      padding: 2rem;
-      max-width: 28rem;
-      margin: 2rem;
-      border: 2px solid #111;
-      border-radius: 1rem;
-      backdrop-filter: blur(8px);
-      animation: fadeIn 1s ease;
-      text-align: center;
       z-index: 1;
     }
-    #avatar {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 1rem;
-      border: 2px solid #333;
-      border-radius: 50%;
+
+    .ticker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      font-size: 12px;
+      background: #1f001f;
+      color: #ffb6e9;
+      font-family: monospace;
+      padding: 2px 6px;
+      z-index: 9999;
+      white-space: nowrap;
       overflow: hidden;
-      animation: tremble 0.5s infinite;
     }
-    #avatar img { width: 100%; height: 100%; object-fit: cover; }
-    #name {
-      font-family: 'N', serif;
-      font-size: 2.2rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      animation: glitch 2s infinite;
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 60s linear infinite;
     }
-    #desc {
-      margin-top: .7rem;
-      font-size: .95rem;
-      opacity: .85;
-      line-height: 1.5;
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .container {
       position: relative;
+      z-index: 2;
+      padding: 20px;
+      width: 100%;
+      max-width: 700px;
+      background: rgba(255, 240, 245, 0.1);
+      border: 2px dashed #ffa0dd;
+      box-shadow: inset 0 0 10px #ffb6e9, 0 0 10px #ffccff;
+      text-align: center;
     }
-    #desc::before, #desc::after {
-      content: attr(data-text);
-      position: absolute;
-      inset: 0;
-      color: #444;
-      mix-blend-mode: overlay;
-      animation: shift 3s infinite;
+
+    .pfp {
+      width: 96px;
+      height: 96px;
+      border: 3px double #ffa0dd;
+      background: black;
+      margin: 0 auto 16px;
     }
-    #links {
-      display: flex;
-      justify-content: center;
-      gap: .8rem;
-      flex-wrap: wrap;
-      margin-top: 1.8rem;
+
+    .username {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff66cc;
+      text-shadow: 1px 1px 2px #000;
+      margin-bottom: 12px;
     }
-    .link {
-      width: 42px; height: 42px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #222;
-      border-radius: .5rem;
-      position: relative;
+
+    .bio {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ffe6f2;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px;
+      border: 1px solid #ffa0dd;
+      display: inline-block;
+    }
+
+    .toggle {
+      display: inline-block;
+      background: black;
+      color: #ff66cc;
+      border: 1px solid #ff66cc;
+      padding: 3px 8px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .toggle:hover {
+      background: #ff66cc;
+      color: black;
+    }
+
+    .extra {
+      max-height: 0;
       overflow: hidden;
-      transition: transform .4s;
-    }
-    .link::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(45deg, #0000, #555);
+      transition: max-height 0.8s ease-out, opacity 0.8s ease-out;
       opacity: 0;
-      transition: opacity .4s;
+      margin-top: 10px;
+      font-size: 13px;
+      border-top: 1px dotted #ffa0dd;
+      padding-top: 10px;
     }
-    .link:hover { transform: scale(1.1); }
-    .link:hover::before { opacity: 1; }
-    .link img { width: 20px; height: 20px; filter: invert(0); z-index: 1; }
-    @keyframes tremble {
-      0%,100% { transform: translate(0,0); }
-      50%    { transform: translate(0.5px, -0.5px); }
+    .extra.open {
+      max-height: 1000px;
+      opacity: 1;
     }
-    @keyframes glitch {
-      0%,100% { text-shadow: 1px 1px #111, -1px -1px #111; }
-      50% { text-shadow: 2px 2px #333, -2px -2px #333; }
+
+    .linkbar {
+      margin-top: 16px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
     }
-    @keyframes shift {
-      0%,100% { transform: translate(0,0); }
-      50%   { transform: translate(2px,-2px); }
+
+    .linkbar img {
+      width: 24px;
+      height: 24px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 4px #000);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(.95); }
-      to   { opacity: 1; transform: scale(1); }
+
+    marquee {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #ffccff;
     }
   </style>
 </head>
 <body>
-  <div id="bg"></div>
-  <div id="overlay">
-    <button id="enterBtn">Enter</button>
+  <div class="ticker">
+    <span>welcome 2 chiyo's site > i haven't slept in 3 days > reality is a distraction > nyaaaaa > i'm running on estrogeb & caffeine > i put glitter in my code > i talk to my files like they're alive > i live in a jpeg > i'm not offline, just invisible > i daydream in 1080p > i'm held together with cat gifs > i broke reality on purpose > i'm streaming my thoughts > i kissed the void goodnight > i compile emotions nightly > i'm typing from another dimension > i decorated my ram with stickers > i ping the stars when i'm lonely > i keep secrets in .txt files > i'm my own screensaver > welcome 2 my weird little corner</span>
   </div>
-  <audio id="bgm" src="music.mp3" loop preload="auto"></audio>
 
-  <div id="card">
-    <div id="avatar">
-      <img src="profile.jpg" alt="Profile">
+  <div class="container">
+    <img src="pfp.jpg" alt="profile" class="pfp">
+    <div class="username">~ chiyo ~</div>
+    <div class="bio">
+      estro angel ∞ internet user ∞ shitty gamer
     </div>
-    <div id="name">Chiyo</div>
-    <div id="desc" data-text="I am me.">I am me.</div>
-    <div id="links">
-      <a class="link" href="https://discord.gg/compsci" target="_blank"><img src="icon1.png" alt></a>
-      <a class="link" href="https://github.com/chiyoluvzu" target="_blank"><img src="icon2.png" alt></a>
-      <a class="link" href="https://www.youtube.com/@Chiyoluvzu" target="_blank"><img src="icon3.png" alt></a>
-      <a class="link" href="www.tiktok.com/@chiyothefemboy" target="_blank"><img src="icon4.png" alt></a>
+    <div>
+    <div class="toggle" onclick="toggleExtra()">read abt me</div>
+    <div class="extra" id="extra">
+      <p>i have 5 folders named "stuff" and they're all full of random shit. i write code at 3AM while sobbing to vocaloid remixes.</p>
+      <p>the internet is my bedroom. i believe the angel of chaos wants me.</p>
+      <p>i miss myself</p>
+      <p>i TRY TO DENY myself</p>
+      <p>i am afraid i will dissapear</p>
+      <p>yet i want to dissapear</p>
+      <p>i am not myself.</p>
     </div>
+    </div>
+
+    <marquee behavior="scroll" direction="left">⊹ dreams in .bmp ⊹ chiyo loves u ⊹ everything's pink in heaven ⊹ stay hydrated and mysterious ⊹ u are the main character ⊹ crying in rgb ⊹ ctrl+alt+believe ⊹ emotionally encrypted ⊹ booting into bliss ⊹ aesthetic.exe has stopped responding ⊹ make it weird, make it cute ⊹ heartbeats in 32-bit ⊹ logged into your daydream ⊹ buffering emotions... ⊹ cloudcore is a state of mind ⊹ melancholy.mp3 playing softly ⊹ ur vibe is valid ⊹ typing feelings.txt ⊹ pastels are the future ⊹ debug ur sadness ⊹ kawaii kernel panic ⊹ the void has wi-fi ⊹</marquee>
   </div>
 
   <script>
-    const overlay = document.getElementById('overlay');
-    const bgm     = document.getElementById('bgm');
-    const enter   = document.getElementById('enterBtn');
-
-    enter.addEventListener('click', () => {
-      bgm.play().catch(() => {});
-      overlay.style.display = 'none';
-    });
+    function toggleExtra() {
+      const box = document.getElementById('extra');
+      box.classList.toggle('open');
+    }
   </script>
 </body>
 </html>
