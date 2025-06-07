@@ -1,0 +1,117 @@
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Persona 3–inspired blues + glitchy webcore typography & animations      */
+/* ───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+:root {
+  --darkest-blue: #0f1624;
+  --mid-blue:     #1d2d50;
+  --light-blue:   #415a77;
+  --ghost-white:  #e0e1dd;
+  --accent-glitch: rgba(65, 90, 119, 0.6);
+  --font-main: 'Montserrat', sans-serif;
+  --font-game: 'Press Start 2P', monospace;
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--darkest-blue);
+  color: var(--ghost-white);
+  font-family: var(--font-main);
+  line-height: 1.5;
+  text-shadow: 0 0 4px var(--accent-glitch);
+}
+
+.info-bar {
+  background: var(--mid-blue);
+  font-family: var(--font-game);
+  font-size: 0.7rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.main-header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border: 3px solid var(--light-blue);
+  border-radius: 50%;
+  object-fit: cover;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { box-shadow: 0 0 8px var(--accent-glitch); }
+  to   { box-shadow: 0 0 20px var(--accent-glitch); }
+}
+
+.main-header h1 {
+  font-family: var(--font-game);
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--light-blue);
+}
+
+.subtitle {
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.chiyo-intro {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  border-left: 3px solid var(--light-blue);
+}
+
+.footer-quotes {
+  font-family: var(--font-game);
+  font-size: 0.6rem;
+  text-align: center;
+  margin: 2rem 1rem 1rem;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+.enter-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.enter-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--light-blue);
+  color: var(--ghost-white);
+  font-family: var(--font-game);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid var(--ghost-white);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.enter-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px var(--accent-glitch);
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.6;
+  padding-bottom: 1rem;
+}

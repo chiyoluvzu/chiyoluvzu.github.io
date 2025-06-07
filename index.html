@@ -2,195 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>~ chiyo ~</title>
+  <title>Chiyo</title>
   <meta content="~ chiyo ~" property="og:title" />
   <meta content="ur fav estro angel!" property="og:description" />
   <meta content="https://chiyo.wtf" property="og:url" />
   <meta content="pfp.jpg" property="og:image" />
   <meta content="#000000" data-react-helmet="true" name="theme-color" />
-
-  <link rel="icon" href="fav.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../e0arWw4WOSAy.com/hKvwB1UhTI0l.gif">
+  <link rel="stylesheet" href="7.css">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: 'Courier New', Courier, monospace;
-      background: url('bg.jpg') center;
-      color: #ffb6e9;
-      overflow: hidden;
+    * {
+      box-sizing: border-box;
+    }
+
+html {
+  margin: 0;
+  padding: 0;
+  background-image: url("overlay.gif");
+  background-repeat: repeat;
+  background-color: black; /* Fallback background color */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+
+    #main {
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: url('cursor.cur'), auto;
+      min-height: 100vh;
+      padding: 1rem;
     }
 
-    body::before {
-      content: '';
+    .window {
+      max-width: 100%;
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+    }
+
+    .window-body img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .window-body {
+      padding: 0.75rem;
+    }
+
+    .window-body p {
+      font-size: 0.75rem;
+      margin: 0.5em 0;
+    }
+
+    a {
+      color: #584bf7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #c878ec;
+    }
+
+    .background-layer {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.5;
+      overflow: hidden;
+    }
+
+    .background-layer img {
       width: 100%;
       height: 100%;
-      background-image: url('overlay.gif');
-      background-repeat: repeat;
-      background-size: auto;
-      opacity: 0.2;
-      pointer-events: none;
-      z-index: 1;
+      object-fit: contain;
     }
 
-    .ticker {
+    .side-img {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      font-size: 12px;
-      background: #1f001f;
-      color: #ffb6e9;
-      font-family: monospace;
-      padding: 2px 6px;
-      z-index: 9999;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    .ticker span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 60s linear infinite;
-    }
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      bottom: 0;
+      right: 0;
+      max-width: 100%;
+      z-index: -1;
+      opacity: 0.8;
+      filter: invert(100%);
     }
 
-    .container {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-      width: 100%;
-      max-width: 700px;
-      background: rgba(255, 240, 245, 0.1);
-      border: 2px dashed #ffa0dd;
-      box-shadow: inset 0 0 10px #ffb6e9, 0 0 10px #ffccff;
-      text-align: center;
-    }
+    @media screen and (max-width: 768px) {
+      .side-img {
+        display: none;
+      }
 
-    .pfp {
-      width: 96px;
-      height: 96px;
-      border: 3px double #ffa0dd;
-      background: black;
-      margin: 0 auto 16px;
-    }
-
-    .username {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ff66cc;
-      text-shadow: 1px 1px 2px #000;
-      margin-bottom: 12px;
-    }
-
-    .bio {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #ffe6f2;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 6px;
-      border: 1px solid #ffa0dd;
-      display: inline-block;
-    }
-
-    .toggle {
-      display: inline-block;
-      background: black;
-      color: #ff66cc;
-      border: 1px solid #ff66cc;
-      padding: 3px 8px;
-      cursor: pointer;
-      font-size: 12px;
-      margin-top: 10px;
-    }
-    .toggle:hover {
-      background: #ff66cc;
-      color: black;
-    }
-
-    .extra {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.8s ease-out, opacity 0.8s ease-out;
-      opacity: 0;
-      margin-top: 10px;
-      font-size: 13px;
-      border-top: 1px dotted #ffa0dd;
-      padding-top: 10px;
-    }
-    .extra.open {
-      max-height: 1000px;
-      opacity: 1;
-    }
-
-    .linkbar {
-      margin-top: 16px;
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-    }
-
-    .linkbar img {
-      width: 24px;
-      height: 24px;
-      image-rendering: pixelated;
-      filter: drop-shadow(0 0 4px #000);
-    }
-
-    marquee {
-      margin-top: 20px;
-      font-size: 11px;
-      color: #ffccff;
+      .window {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
 
-  <div class="ticker">
-    <span>welcome 2 chiyo's site > i haven't slept in 3 days > reality is a distraction > nyaaaaa > i'm running on estrogeb & caffeine > i put glitter in my code > i talk to my files like they're alive > i live in a jpeg > i'm not offline, just invisible > i daydream in 1080p > i'm held together with cat gifs > i broke reality on purpose > i'm streaming my thoughts > i kissed the void goodnight > i compile emotions nightly > i'm typing from another dimension > i decorated my ram with stickers > i ping the stars when i'm lonely > i keep secrets in .txt files > i'm my own screensaver > welcome 2 my weird little corner</span>
+  <div class="background-layer">
+    <img src="overlay.gif" alt="back">
   </div>
 
-  <div class="container">
-    <img src="pfp.jpg" alt="profile" class="pfp">
-    <div class="username">~ chiyo ~</div>
-    <div class="bio">
-      estro angel ∞ internet user ∞ shitty gamer
-    </div>
-    <div>
-      <div class="toggle" onclick="toggleExtra()">read abt me</div>
-      <div class="extra" id="extra">
-        <p>i have 5 folders named "stuff" and they're all full of random shit. i write code at 3AM while sobbing to vocaloid remixes.</p>
-        <p>the internet is my bedroom. i believe the angel of chaos wants me.</p>
-        <p>i miss myself</p>
-        <p>i TRY TO DENY myself</p>
-        <p>i am afraid i will dissapear</p>
-        <p>yet i want to dissapear</p>
-        <p>i am not myself.</p>
+  <img src="side.png" class="side-img" alt="side graphic">
+
+  <div id="main">
+    <div class="window glass gbti">
+      <div class="title-bar">
+        <div class="title-bar-text">me.html</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <img src="pfp.png" style="width:80px;float:left;margin:2px;margin-top:2px;border:1px solid;">
+            <p>hi hi~ i’m <b>chiyo tanaka</b>, your fav 16 y/o estro angel. maybe a lil corrupted, maybe just tired. i like talking to my boyfriend, coding things i know <b>nobobdy will see</b>, playing games at 3am, and daydreaming about <b>fucking killing myself</b> lmfao</p>
+
+            <p>i’m part of <a href="https://raptorbytes.org">raptorbytes</a> — a digital haven where i help make shit projects. you can reach me through <a href="mailto:chiyo@raptorbytes.org">email</a> or <a href="discord.com/users/1123776506309644418">discord</a>, if i’m still around. my work is on <a href="https://github.com/chiyoluvzu">github</a> and u can watch shit i make on <a href="https://youtube.com/@Chiyoluvzu">youtube</a> if i mean enough to you.</p>
+
+            <p>♡ thanks for visiting my site. i hope u find comfort in this shit ♡</p>
+
+
+        <center><img src="https://64.media.tumblr.com/9e8bbd225f94c3a2554b06f6e05d1ea2/9afe43a8f1d1cfeb-4c/s400x600/70f7cc2bbed1556f44b2493c6a583e064ff5d962.gifv" alt=""></center>
+        <center style="font-size:10px;"><i>(last updated: 5/7/25)</i></center>
       </div>
     </div>
-
-    <marquee behavior="scroll" direction="left">⊹ dreams in .bmp ⊹ chiyo loves u ⊹ everything's pink in heaven ⊹ stay hydrated and mysterious ⊹ u are the main character ⊹ crying in rgb ⊹ ctrl+alt+believe ⊹ emotionally encrypted ⊹ booting into bliss ⊹ aesthetic.exe has stopped responding ⊹ make it weird, make it cute ⊹ heartbeats in 32-bit ⊹ logged into your daydream ⊹ buffering emotions... ⊹ cloudcore is a state of mind ⊹ melancholy.mp3 playing softly ⊹ ur vibe is valid ⊹ typing feelings.txt ⊹ pastels are the future ⊹ debug ur sadness ⊹ kawaii kernel panic ⊹ the void has wi-fi ⊹</marquee>
   </div>
 
-  <script>
-    function toggleExtra() {
-      const box = document.getElementById('extra');
-      box.classList.toggle('open');
-    }
-  </script>
 </body>
 </html>
