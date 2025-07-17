@@ -1,305 +1,264 @@
-<!--This whole site is more or less a retexture of https://an0n.neocities.org/home and stripped down to a extent. Credits to them-->
+<!--This whole site is more or less a retexture of https://an0n.neocities.org/home and stripped down to an extent. Credits to them-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chiyo.wtf</title>
+
   <!-- Primary Meta Tags -->
-<title>Chiyo.wtf</title>
-<meta name="title" content="Chiyo.wtf">
-<meta name="description" content="SCHIZO TRANSFUCK BRAINROT!!!">
+  <meta name="title" content="Chiyo.wtf">
+  <meta name="description" content="SCHIZO TRANSFUCK BRAINROT!!!">
 
-<!-- Open Graph / Facebook / Discord -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://chiyo.wtf/">
-<meta property="og:title" content="Chiyo.wtf">
-<meta property="og:description" content="SCHIZO TRANSFUCK BRAINROT!!!">
-<meta property="og:image" content="https://chiyo.wtf/fumo.png">
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chiyo.wtf/">
+  <meta property="og:title" content="Chiyo.wtf">
+  <meta property="og:description" content="SCHIZO TRANSFUCK BRAINROT!!!">
+  <meta property="og:image" content="https://chiyo.wtf/fumo.png">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://chiyo.wtf/">
-<meta name="twitter:title" content="Chiyo.wtf">
-<meta name="twitter:description" content="SCHIZO TRANSFUCK BRAINROT!!!">
-<meta name="twitter:image" content="https://chiyo.wtf/fumo.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://chiyo.wtf/">
+  <meta name="twitter:title" content="Chiyo.wtf">
+  <meta name="twitter:description" content="SCHIZO TRANSFUCK BRAINROT!!!">
+  <meta name="twitter:image" content="https://chiyo.wtf/fumo.png">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>//@chiyo.sh</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="icon" type="image/x-icon" href="fumo.png">
-<style>
-       @import url('https://fonts.cdnfonts.com/css/thegoodmonolith');
-body{
-  background-image:url('https://an0n.neocities.org/assets/backgrounds/background4.gif');
-}
+  <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="icon" type="image/x-icon" href="fumo.png">
+  <link href="https://fonts.cdnfonts.com/css/thegoodmonolith" rel="stylesheet">
 
-.container {
-display: grid;
-width:1000px;
-background:#8D7B68;
-margin:30px auto;
-padding:5px;
-position:relative;
-grid-template-columns: 250px 490px 250px;
-grid-template-rows: 200px 30px 630px;
-gap: 5px;
-}
-
-.header { grid-area: 1 / 1 / 2 / 4; }
-.blinkies { grid-area: 2 / 1 / 3 / 4; }
-.leftcolumn { grid-area: 3 / 1 / 4 / 2; }
-.centercolumn { grid-area: 3 / 2 / 4 / 3; }
-.rightcolumn { grid-area: 3 / 3 / 4 / 4; }
-.stamps { grid-area: 4 / 1 / 5 / 4; }
-.footer { grid-area: 5 / 1 / 6 / 4; }
-
-
-
-
-
-/*from stylesheet*/
-
-.pulse {
-  animation: pulse 1s infinite ease-in-out alternate;
-}
-@keyframes pulse {
-  from { transform: scale(0.9) rotate(-5deg);  }
-  to { transform: scale(1.1) rotate(5deg); }
-}
-
-body{
-animation: fadein ease 2s;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-font-family: 'TheGoodMonolith', sans-serif;
-  background-color: #fffffa;
-  font-weight:bold;
-  color:#8D7B68;
-  font-size:13px;
-        
+  <style>
+    body {
+      font-family: 'TheGoodMonolith', sans-serif;
+      background-color: #0a0b0a;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/17/Digital_rain_animation_small_letters_clear.gif');
+      background-size: cover;
+      background-repeat: repeat-x;
+      color: #6c9159;
+      font-weight: bold;
+      font-size: 13px;
       cursor: url('/assets/favicons/cursor1.png'), default;
-}
-  
-@keyframes fadein {
-0% {opacity: 0;}
-100% {opacity: 1;}
-      }
-      
-  
-a:link {
-  color: #c9b099;
-}
-a:visited {
-  color: #c9b099;
-}
-a:hover {
-  cursor: url('/assets/favicons/cursor2.png'), pointer;
-  color: #8D7B68;
-}
-a:active {
-  color: #c9b099;
-}
-  
-
-/*NEEDS EDITING!! height element defines the page height and i could not tell you why ;w;*/
-.crt:before {
-  content: " ";
-  display: inline;
-  height:1100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 2;
-  background-size: 100% 3px, 3px 100%;
-  pointer-events: none;
-  opacity:50%;
-  
-  
-  
-</style>
-<script>
-
-
-// <![CDATA[
-var speed=200; // speed colours change, 1 second = 1000
-var glow=3; // can be set from '0' for no glow, to 10
-var raincol=new Array("#c9b099", "#8D7B68", "#a7917d"); // change the colours if you want to
-var alink=""; // page to link text to (set to ="" for no link)
-
-/****************************
-*    Rainbow Text Effect    *
-*(c)2003-13 mf2fm web-design*
-*  http://www.mf2fm.com/rv  *
-* DON'T EDIT BELOW THIS BOX *
-****************************/
-var rainbow, raintxt, raincnt=0;
-
-function addLoadEvent(funky) {
-  var oldonload=window.onload;
-  if (typeof(oldonload)!='function') window.onload=funky;
-  else window.onload=function() {
-    if (oldonload) oldonload();
-    funky();
-  }
-}
-
-addLoadEvent(regenbogen);
-
-function regenbogen() { if (document.getElementById) {
-  var i, rainbeau;
-  rainbow=document.getElementById("rainbow");
-  raintxt=rainbow.firstChild.nodeValue;
-  while (rainbow.childNodes.length) rainbow.removeChild(rainbow.childNodes[0]);
-  for (i=0; i<raintxt.length; i++) {
-    rainbeau=document.createElement("span");
-    rainbeau.setAttribute("id", "rain"+i);
-    rainbeau.appendChild(document.createTextNode(raintxt.charAt(i)));
-    if (alink) {
-      rainbeau.style.cursor="pointer";
-      rainbeau.onclick=function() { top.location.href=alink; }
+      animation: fadein ease 2s;
+      animation-fill-mode: forwards;
     }
-    rainbow.appendChild(rainbeau);
-  }
-  rainbow=setInterval ("raining()", speed);
-}}
 
-function raining() {
-  var i, c;
-  for (i=0; i<raintxt.length; i++) {
-    c=raincol[(i+raincnt)%raincol.length];
-    document.getElementById("rain"+i).style.color=c;
-	if (glow) document.getElementById("rain"+i).style.textShadow=c+" 0px 0px "+glow+"px";
-  }
-  raincnt++;
-}
-// ]]>
+    a:link { color: #a0e578; }
+    a:visited { color: #a5bb98; }
+    a:hover {
+      color: #52c00d;
+      cursor: url('/assets/favicons/cursor2.png'), pointer;
+    }
+    a:active { color: #a5c699; }
 
+    button {
+      background: #0a0b0a;
+      color: #6c9159;
+      border: 1px solid #52c00d;
+      font-size: 13px;
+      font-family: 'TheGoodMonolith', sans-serif;
+      font-weight: bold;
+      padding: 5px 10px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #122d11;
+      color: #a0e578;
+    }
 
+    .container {
+      display: grid;
+      width: 1000px;
+      background: #111;
+      margin: 30px auto;
+      padding: 5px;
+      position: relative;
+      grid-template-columns: 250px 490px 250px;
+      grid-template-rows: 200px 30px 630px;
+      gap: 5px;
+    }
 
+    .header { grid-area: 1 / 1 / 2 / 4; }
+    .blinkies { grid-area: 2 / 1 / 3 / 4; }
+    .leftcolumn { grid-area: 3 / 1 / 4 / 2; background: #0a0b0a; }
+    .centercolumn { grid-area: 3 / 2 / 4 / 3; background: #0a0b0a; }
+    .rightcolumn { grid-area: 3 / 3 / 4 / 4; background: #0a0b0a; }
+    .stamps { grid-area: 4 / 1 / 5 / 4; }
+    .footer { grid-area: 5 / 1 / 6 / 4; }
 
+    .pulse {
+      animation: pulse 1s infinite ease-in-out alternate;
+    }
 
-</script>
+    @keyframes pulse {
+      from { transform: scale(0.9) rotate(-5deg); }
+      to { transform: scale(1.1) rotate(5deg); }
+    }
+
+    @keyframes fadein {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .crt:before {
+      content: " ";
+      display: inline;
+      height: 1100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      z-index: 2;
+      background-size: 100% 3px, 3px 100%;
+      pointer-events: none;
+      opacity: 50%;
+    }
+  </style>
+
+  <script>
+    var speed = 200;
+    var glow = 3;
+    var raincol = ["#c9b099", "#8D7B68", "#a7917d"];
+    var alink = "";
+    var rainbow, raintxt, raincnt = 0;
+
+    function addLoadEvent(funky) {
+      var oldonload = window.onload;
+      if (typeof (oldonload) != 'function') window.onload = funky;
+      else window.onload = function () {
+        if (oldonload) oldonload();
+        funky();
+      }
+    }
+
+    addLoadEvent(regenbogen);
+
+    function regenbogen() {
+      if (document.getElementById) {
+        var i, rainbeau;
+        rainbow = document.getElementById("rainbow");
+        raintxt = rainbow.firstChild.nodeValue;
+        while (rainbow.childNodes.length) rainbow.removeChild(rainbow.childNodes[0]);
+        for (i = 0; i < raintxt.length; i++) {
+          rainbeau = document.createElement("span");
+          rainbeau.setAttribute("id", "rain" + i);
+          rainbeau.appendChild(document.createTextNode(raintxt.charAt(i)));
+          if (alink) {
+            rainbeau.style.cursor = "pointer";
+            rainbeau.onclick = function () { top.location.href = alink; }
+          }
+          rainbow.appendChild(rainbeau);
+        }
+        rainbow = setInterval("raining()", speed);
+      }
+    }
+
+    function raining() {
+      var i, c;
+      for (i = 0; i < raintxt.length; i++) {
+        c = raincol[(i + raincnt) % raincol.length];
+        document.getElementById("rain" + i).style.color = c;
+        if (glow) document.getElementById("rain" + i).style.textShadow = c + " 0px 0px " + glow + "px";
+      }
+      raincnt++;
+    }
+  </script>
 </head>
 
-<div class="crt">
-<div class="container">
-  
-  
-  <!---header--->
-<div class="header" style="height:235px; background:#fffffa; background-image:url('banner.jpg'); background-position:40% center; background-size:cover;"></div>
-  
-  
-  
-  <!---left column--->
-<div class="leftcolumn" style="background:#fffffa;">
-    
-<div style="width:90%; font-size:20px; padding:5px; margin:5px; border:3px solid #8D7B68; background:#c9b099; color:#fffffa">
-  <img src="https://an0n.neocities.org/assets/favicons/1a081049.gif"> <span>directory!!</span> </div>
-    
-    <!---buttons/links--->
-    <p style="padding:5px 0px 0px 5px; margin:0px; font-size:20px;">projects..</p>
-    <a href="https://github.com/chiyoluvzu/NyxSploit"><button style="margin:5px; font-size:13px; font-family: 'TheGoodMonolith', sans-serif; font-weight:bold;">NyxSploit</button></a>
-        <a href="https://slayer-os.github.io/"><button style="margin:5px; font-size:13px; font-family: 'TheGoodMonolith', sans-serif; font-weight:bold;">SlayerOS</button></a>
-    
-  <p style="padding:5px 0px 0px 5px; margin:0px; font-size:20px;">find me at..</p>
-        <a href="https://allthingslinux.org/"><button style="margin:5px; font-size:13px; font-family: 'TheGoodMonolith', sans-serif; font-weight:bold;">All Things Linux!</button></a>
-        <a href="https://saph.criminal.ltd/"><button style="margin:5px; font-size:13px; font-family: 'TheGoodMonolith', sans-serif; font-weight:bold;">Criminal LTD</button></a>  
-    <img src="https://an0n.neocities.org/assets/pagedeco/ca8c8959.gif" style="width:90%; padding:5px 10px;">
-    
-    
-    
-     <img src="tetobop.gif" style="width:90%; height:20%; border:inset 5px; margin:5px;">
-    
-    
-    <div style="width:47%; height:100px; background:url('me.png'); background-size:cover; margin:5px; float:left">
-      </div>
-      <a href="https://www.youtube.com/watch?v=XfqOB4hvxlY"><div style="width:47%; height:100px; background:url('dance2.gif'); background-size:fill; margin-right:5px; margin-top:5px; float:right;"></div></a>
-    <div style="width:47%; height:100px; background:url('me3.png'); background-size:cover; margin:5px; float:left">
-  </div>
+<body>
+  <div class="crt">
+    <div class="container">
+      <!-- HEADER -->
+      <div class="header" style="height:235px; background:#000000; background-image:url('banner.jpg'); background-position:40% center; background-size:cover;"></div>
+
+      <!-- LEFT COLUMN -->
+      <div class="leftcolumn">
+        <div style="width:90%; font-size:20px; padding:5px; margin:5px; border:2px solid #52c00d; background:#111; color:#6c9159;">
+          <img src="https://an0n.neocities.org/assets/favicons/1a081049.gif"> <span>directory!!</span>
+        </div>
+
+        <p style="padding:5px 0px 0px 5px; margin:0px; font-size:20px;">projects..</p>
+        <a href="https://github.com/chiyoluvzu/NyxSploit"><button>NyxSploit</button></a>
+        <a href="https://slayer-os.github.io/"><button>SlayerOS</button></a>
+
+        <p style="padding:5px 0px 0px 5px; margin:0px; font-size:20px;">find me at..</p>
+        <a href="https://allthingslinux.org/"><button>All Things Linux!</button></a>
+        <a href="https://saph.criminal.ltd/"><button>Criminal LTD</button></a>
+
+        <img src="https://an0n.neocities.org/assets/pagedeco/ca8c8959.gif" style="width:90%; padding:5px 10px;">
+        <img src="tetobop.gif" style="width:90%; height:20%; border:inset 5px; margin:5px;">
+
+        <div style="width:47%; height:100px; background:url('me.png'); background-size:cover; margin:5px; float:left"></div>
+        <a href="https://www.youtube.com/watch?v=XfqOB4hvxlY">
+          <div style="width:47%; height:100px; background:url('dance2.gif'); background-size:fill; margin-right:5px; margin-top:5px; float:right;"></div>
+        </a>
+        <div style="width:47%; height:100px; background:url('me3.png'); background-size:cover; margin:5px; float:left"></div>
         <div style="width:47%; height:100px; background:url('me2.png'); background-size:cover; margin-right:5px; margin-top:5px; float:right;"></div>
+      </div>
 
-
-  </div>
-  
-
-  <!---center column--->
-<div class="centercolumn" style="background:#fffffa;">
-
+      <div class="centercolumn">
   <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:100%; padding:5px 0px 0px;">
-  
-    <p id="rainbow" style="font-size:20px; padding:0px 10px; margin:0px;">welcome, pookie!!</p>
-   
+  <p id="rainbow" style="font-size:20px; padding:0px 10px; margin:0px;">welcome, pookie!!</p>
+
   <p style="margin:5px 10px 0px;">
     <img src="teto02.gif" style="width:100px; float:right; margin-top:-20px;">
-    hallo! I'm chiyo, ur fav estrodumping transbian ^.^ I am FASCINATED with technology and shit :> I am learning to develop small applications & scripts. I do occaisonally engage in nefarious activities with questionable indiduals. 
+    hallo! I'm chiyo, ur fav estrodumping transbian ^.^ I am FASCINATED with technology and shit :> I am learning to develop small applications & scripts. I do occaisonally engage in nefarious activities with questionable individuals.
     <br><br>
     PLS DO NOTE THAT I AM A LEARNER. I am not a SKID because i will TELL YOU if I do not know smthn ^^
-
-      <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:100%; padding:5px 0px 0px;">
-  <br><br>
-    <span style="font-size:15px; background:#E3D7C1; padding:5px;">this shithole is abt ME!!!</span>
-    <p style="margin:10px 10px 0px;">
-      <img src="fumo.png" style="float:left; width:150px; margin:5px 5px 5px -10px;">I am a avid fan of old shit, i like to immerse myself in an era i never would have experienced otherwise. 
-      <br>
-      <br>
-      think of this site as a love letter to my old black xbox 360 with the flashing green ring that i had flashed with iXtreme, and later RGH’d to run homebrew, SILENT HILLLLLL(!), and custom dashboards. (the day consoles let me mod, patch ISOs, and run xex menus out of the box again is the day i know peace)
   </p>
-      <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:100%; margin:5px">
+
+  <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:100%; padding:5px 0px 0px;">
+  <br><br>
+  <span style="font-size:15px; background:#111; color:#6c9159; padding:5px; border:1px solid #52c00d;">this shithole is abt ME!!!</span>
+  <p style="margin:10px 10px 0px;">
+    <img src="fumo.png" style="float:left; width:150px; margin:5px 5px 5px -10px;">
+    I am a avid fan of old shit, i like to immerse myself in an era i never would have experienced otherwise.
+    <br><br>
+    think of this site as a love letter to my old black xbox 360 with the flashing green ring that i had flashed with iXtreme, and later RGH’d to run homebrew, SILENT HILLLLLL(!), and custom dashboards. (the day consoles let me mod, patch ISOs, and run xex menus out of the box again is the day i know peace)
+  </p>
+
+  <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:100%; margin:5px">
   <br>
-    <p style="font-size:15px; background:#E3D7C1; padding:5px; margin:5px 10px;">i love the interwebz alot >.< </p>
-      
-  <p style="margin:5px 10px 10px;"><a href="mailto:chiyo@chiyo.wtf"><img src="mail.gif" style="width:100px; float:right; margin:0px 15px 5px 5px;"></a>
-    
-    anywayy thank you for checking out my page!! feel free to email me at chiyo@chiyo.wtf aswell as message me on discord at chiyo.sh</p> 
+  <p style="font-size:15px; background:#111; color:#6c9159; padding:5px; margin:5px 10px; border:1px solid #52c00d;">i love the interwebz alot >.< </p>
 
-    <p> 
-      </p>
   <p style="margin:5px 10px 10px;">
-    
-    i hope u find joy in this shit.</p> 
+    <a href="mailto:chiyo@chiyo.wtf">
+      <img src="mail.gif" style="width:100px; float:right; margin:0px 15px 5px 5px;">
+    </a>
+    anywayy thank you for checking out my page!! feel free to email me at chiyo@chiyo.wtf as well as message me on discord at chiyo.sh
+  </p>
 
-
+  <p style="margin:5px 10px 10px;">i hope u find joy in this shit.</p>
 
   <img src="https://an0n.neocities.org/assets/pagedeco/acsii1.gif">
   <img src="https://an0n.neocities.org/assets/pagedeco/acsii3.gif">
   <img src="https://an0n.neocities.org/assets/pagedeco/acsii2.gif" style="margin-left:20px;">
-  </div>
+</div>
 
 
-<!---right column--->
-<div class="rightcolumn" style="background:#fffffa;">
-    
-    <img src="https://an0n.neocities.org/assets/pagedeco/win95-1.png" style="width:95%; padding:5px;">
-    
-    <div style="position:absolute; border:inset; height:140px; top:300px; right:25px; width:200px; background:#fffffa; z-index:1; padding:5px;">
-      <p style="font-size:20px; margin:-3px 0px 0px; height:30px; background:#E3D7C1; text-align:center;">
-        <img src="https://an0n.neocities.org/assets/favicons/spiral%20black%20fav.gif" style="height:15px; padding-top:5px; padding-right:5px;">changelog
-        <img src="https://an0n.neocities.org/assets/favicons/spiral%20black%20fav.gif" style="height:15px; padding-top:5px; padding-left:5px;">
-      </p>
-      
-      <div style="overflow:auto; height:125px;">
-        <hr>
-        <i>6/18/2025</i><br>NEW THEMING WAHOO WAJOOOO
-        <hr>
-      </div>
+
+<div class="rightcolumn">
+  <img src="https://an0n.neocities.org/assets/pagedeco/win95-1.png" style="width:95%; padding:5px;">
+
+  <div style="position:absolute; border:inset; height:140px; top:300px; right:25px; width:200px; background:#0a0b0a; z-index:1; padding:5px; color:#6c9159; border:1px solid #52c00d;">
+    <p style="font-size:20px; margin:-3px 0px 0px; height:30px; background:#111; color:#6c9159; text-align:center; border-bottom:1px solid #52c00d;">
+      <img src="https://an0n.neocities.org/assets/favicons/spiral%20black%20fav.gif" style="height:15px; padding-top:5px; padding-right:5px;">changelog
+      <img src="https://an0n.neocities.org/assets/favicons/spiral%20black%20fav.gif" style="height:15px; padding-top:5px; padding-left:5px;">
+    </p>
+    <div style="overflow:auto; height:105px;">
+      <i>6/18/2025</i><br>NEW THEMING WAHOO WAJOOOO
+      <hr style="border-color:#6c9159;">
+      <i>7/16/2025</i><br>style revert + haxor vibe lulz
+      <hr style="border-color:#6c9159;">
     </div>
-
-    <!---flags--->
-    <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:95%; padding:5px;">
-    <img src="transfem.png" style="width:95%; padding:5px; margin-top:0px;">
-    <img src="pan.png" style="width:95%; padding:5px;">
-    <img src="https://an0n.neocities.org/assets/pagedeco/divider8.gif" style="width:95%; padding:5px;">
-
+  </div>
 </div>
 
 <!---footer--->
 <img src="https://an0n.neocities.org/assets/pagedeco/heart.gif" style="position:absolute; right:-50px; top:130px; height:150px; z-index:5">
-<img src="creackhead.png" style="position:absolute; left:-25px; bottom:-20px; height:300px;">
+<img src="futab.gif" style="position:absolute; left:-180px; bottom:-20px; height:400px;">
 <img src="teto.gif" style="position:absolute; right:-120px; bottom:-20px; height:300px;">
 
   </body>
